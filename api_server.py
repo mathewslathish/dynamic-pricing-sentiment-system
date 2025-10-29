@@ -4,9 +4,12 @@ from sentiment_analysis import SentimentAnalyzer
 import pandas as pd
 
 app = Flask(__name__)
-
 pricing_model = DynamicPricingModel()
 sentiment_analyzer = SentimentAnalyzer()
+
+@app.route('/', methods=['GET'])
+def index():
+    return 'Dynamic Pricing Sentiment System API is live.'
 
 @app.route('/health', methods=['GET'])
 def health():
